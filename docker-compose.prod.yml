@@ -1,0 +1,29 @@
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: sqlite+aiosqlite:////data/temperature.db
+      API_HOST: 0.0.0.0
+      API_PORT: 8000
+      SOCKET_HOST: 0.0.0.0
+      SOCKET_PORT: 9999
+      SOCKET_PROTOCOL: TCP
+      TCP_TIMEOUT: 30
+    volumes:
+      - backend_data:/data
+    ports:
+      - "9999:9999"
+    expose:
+      - "8000"
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  backend_data:

@@ -1,0 +1,11 @@
+.git/
+.idea/
+.vscode/
+.venv/
+frontend/node_modules/
+frontend/dist/
+backend/__pycache__/
+backend/temperature.db
+*.pyc
+*.db
+*.log

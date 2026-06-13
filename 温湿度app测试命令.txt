@@ -1,0 +1,13 @@
+# 1. 启动后端
+cd backend
+python main.py
+
+# 2. 启动前端（新终端）
+cd frontend
+npm run dev
+
+# 3. 发送测试数据（新终端）
+python test_sender.py
+
+# 4. 访问前端
+浏览器打开：http://localhost:3000
